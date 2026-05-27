@@ -1,8 +1,7 @@
 import mlflow
 import numpy as np
-from keras import Input
 from tensorflow import keras
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_absolute_error
 import pandas as pd
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
@@ -41,7 +40,7 @@ normed_test_data = np.array(normed_test_data)
 
 # Define model
 model = keras.Sequential([
-    Input(shape=(9,)),
+    keras.layers.Input(shape=(9,)),
     keras.layers.Dense(64, activation="relu"),
     keras.layers.Dense(32, activation="relu"),
     keras.layers.Dense(1),
@@ -66,4 +65,8 @@ with mlflow.start_run():
     r2 = r2_score(test_labels, predictions)
     mlflow.log_metric("test_r2", r2)
 
+    mae = mean_absolute_error(test_labels, predictions)
+    mlflow.log_metric("test_mae", mae)
+
     print("R2:", r2)
+    print("mae:", mae)
