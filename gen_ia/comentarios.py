@@ -37,7 +37,7 @@ def analisar_comentario(texto: str, client: Client, modelo: str) -> dict:
     prompt = f"Analise o seguinte comentário: '{texto}'"
 
     try:
-        # 2. Utilizamos o método .parse() da API (Structured Outputs)
+        # 2. Utilizando o método .parse() da API (Structured Outputs)
         resposta = client.beta.chat.completions.parse(
             model=modelo,
             messages=[
@@ -50,15 +50,15 @@ def analisar_comentario(texto: str, client: Client, modelo: str) -> dict:
                     "content": prompt
                 }
             ],
-            # 3. Passamos o modelo Pydantic diretamente aqui
+            # 3. Passando o modelo Pydantic diretamente aqui
             response_format=AnaliseComentario,
             temperature=0
         )
 
-        # 4. Acessamos o objeto Pydantic já parseado e validado
+        # 4. Acessando o objeto Pydantic já parseado e validado
         analise_pydantic = resposta.choices[0].message.parsed
 
-        # Retornamos como dicionário (ou você pode retornar o próprio objeto analise_pydantic)
+        # Retornando como dicionário (ou você pode retornar o próprio objeto analise_pydantic)
         return analise_pydantic.model_dump()
 
     except Exception as e:
