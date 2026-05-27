@@ -13,7 +13,7 @@ mlflow.set_experiment("aula_01_diabetes_experimento")
 # Enable autologging for scikit-learn
 mlflow.sklearn.autolog()
 
-dados = pd.read_csv("data/diabetes.csv")
+dados = pd.read_csv("../data/diabetes.csv")
 
 feature_cols = ['pregnant', 'insulin', 'bmi', 'age','glucose','bp','pedigree']
 X = dados[feature_cols]

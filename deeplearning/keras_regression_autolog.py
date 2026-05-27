@@ -15,7 +15,7 @@ def norm(x):
     return (x - train_stats['mean']) / train_stats['std']
 
 
-dados = pd.read_csv("data/mpg_data.csv")
+dados = pd.read_csv("../data/mpg_data.csv")
 dados = dados.dropna()
 
 origin = dados.pop('Origin')
