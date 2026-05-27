@@ -9,7 +9,7 @@ load_dotenv()
 
 os.environ["OPENAI_API_KEY"] = os.getenv("API_KEY_OPENAI")
 
-# Use different env variable when using a different LLM provider
+mlflow.set_tracking_uri("sqlite:///../mlflow.db")
 mlflow.set_experiment("Evaluation Quickstart")
 
 # Your agent implementation

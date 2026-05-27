@@ -4,7 +4,7 @@ from tensorflow import keras
 from sklearn.metrics import r2_score, mean_absolute_error
 import pandas as pd
 
-mlflow.set_tracking_uri("sqlite:///mlflow.db")
+mlflow.set_tracking_uri("sqlite:///../mlflow.db")
 mlflow.set_experiment("aula_01_keras_autolog_regression")
 
 # Enable autologging

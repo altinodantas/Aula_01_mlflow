@@ -2,7 +2,7 @@ import mlflow
 import numpy as np
 from tensorflow import keras
 
-mlflow.set_tracking_uri("sqlite:///mlflow.db")
+mlflow.set_tracking_uri("sqlite:///../mlflow.db")
 mlflow.set_experiment("aula_01_keras_autolog")
 
 # Enable autologging

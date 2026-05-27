@@ -7,7 +7,7 @@ import numpy as np
 
 import mlflow
 
-mlflow.set_tracking_uri("sqlite:///mlflow.db")
+mlflow.set_tracking_uri("sqlite:///../mlflow.db")
 mlflow.set_experiment("aula_01_diabetes_experimento")
 
 dados = pd.read_csv("../data/diabetes.csv")
